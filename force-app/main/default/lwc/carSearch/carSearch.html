@@ -1,0 +1,53 @@
+<template>
+    <div class="topbar"></div>
+    <div class="slds-card" style="background-color:#f1efef">
+        <div class="slds-container slds-p-around_large">
+            <div class="slds-align_absolute-center slds-p-around_medium">
+                <lightning-button icon-name="utility:search" label="Search Car" variant="inverse" class="button-card"
+                    onclick={showCars}>
+                </lightning-button>
+            </div>
+            <div id="selectTripDetails" class="slds-p-bottom_x-large">
+
+                <h6 class="sectionHeader">1.Select Date and Time for your Trip</h6>
+                <div class="slds-grid boxLayout slds-m-top_x-small">
+                    <div class="slds-col slds-size_1-of-1 slds-p-around_medium">
+                        <div>
+                            <label>Pickup Date</label>
+                            <lightning-input type="date" class="slds-m-bottom_medium" value={startdate}
+                                onchange={handleStartDate}>
+                            </lightning-input>
+                        </div>
+                        <div>
+                            <label>Drop off Date</label>
+                            <lightning-input type="date" value={enddate} onchange={handleEndDate}></lightning-input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="selectCarGroup" class="slds-p-bottom_x-large">
+                <h6 class="sectionHeader">2. Select Car Group</h6>
+                <div class="slds-grid boxLayout slds-m-top_x-small">
+                    <div class="slds-col slds-size_1-of-1 slds-p-around_medium">
+                        <lightning-combobox label="Car Group" value={group} options={groupoptions}
+                            onchange={handleGroupChange}></lightning-combobox>
+                    </div>
+                </div>
+            </div>
+            <div id="selectCarType" class="slds-p-bottom_x-large">
+                <h6 class="sectionHeader">3. Select Car Type</h6>
+                <div class="slds-grid boxLayout slds-m-top_x-small">
+                    <div class="slds-col slds-size_1-of-1 slds-p-around_medium">
+                        <lightning-combobox label="Transmission" value={transmission} options={transmissionoptions}
+                            onchange={handleTransmissionChange}>
+                        </lightning-combobox>
+                        <lightning-combobox label="Seater" value={seater} options={seateroptions}
+                            onchange={handleSeaterChange}>
+                        </lightning-combobox>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</template>

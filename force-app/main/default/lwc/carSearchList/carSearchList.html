@@ -1,0 +1,32 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-21-2020
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   12-20-2020   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<template>
+    <div class="topbar"></div>
+    <div class="slds-card listview slds-p-around_small">
+        <div class="scrollable-view">
+            <template if:true={searchData}>
+                <!-- iterating searchData to provide each car object as a separate carDetailCard-->
+                <template for:each={searchData} for:item="car">
+                    <div key={car.Id} class="slds-p-around_medium">
+                        <div class="slds-p-bottom_medium">
+                            <c-car-details-card mycar={car} onbookingevt={handleBookingEvent}></c-car-details-card>
+                        </div>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </div>
+
+    <!-- binding modal and provide carobject,startdate and enddate as component attribute-->
+    <c-modal-car-rental carobject={carObject} startdate={startdate} enddate={enddate}>
+    </c-modal-car-rental>
+
+</template>
